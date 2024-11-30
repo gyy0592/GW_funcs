@@ -2,6 +2,8 @@ import numpy as np
 from scipy.interpolate import interp1d
 import matplotlib.pyplot as plt
 from gwpy.timeseries import TimeSeries
+from scipy.interpolate import interp1d
+# from .LIGO_data import RunningMedian #, RunningMedian_gpu
 
 def generate_noise_from_psd(N, psd, num_noises=1,freq_range=[30,1700], sample_rate = 4096, duration = None):
     freqVec = np.linspace(0, sample_rate/2, len(psd))
@@ -118,8 +120,6 @@ def generate_asd_list(data_list,fftlength = None, fs = 4096):
 
 
 
-from scipy.interpolate import interp1d
-from .LIGO_data import RunningMedian #, RunningMedian_gpu
 
 def obtain_smooth_asd(asd, window_size):
     """
